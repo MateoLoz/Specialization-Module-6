@@ -1,0 +1,20 @@
+{
+  "name": "task-module-6",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test:chrome": "cypress run --browser chrome",
+    "test:firefox": "cypress run --browser firefox",
+    "test:edge": "cypress run --browser edge",
+    "test:ui": "cypress open",
+    "test:all": "npm run test:chrome && npm run test:firefox && npm run test:edge"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "cypress": "^15.11.0",
+    "dotenv": "^17.3.1"
+  }
+}
