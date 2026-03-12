@@ -1,13 +1,11 @@
-/// <reference types="cypress" />
-
 import { HomePage } from '../PO/pages/home.page';
 import { filterScenarios } from '../test-data/testData';
 
 context('Tool shop filters', () => {
   const homePage = new HomePage();
-  beforeEach(() => {
-    cy.viewport(1280, 720)
+  before(() => {
     homePage.open();
+    cy.viewport(1280, 720)
   })
 
   it('should order items by name asc', () => {

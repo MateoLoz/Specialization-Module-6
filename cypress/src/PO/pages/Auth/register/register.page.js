@@ -7,6 +7,5 @@ export default class RegisterPage {
     }
     async open() {
         cy.visit('/auth/register', { failOnStatusCode: false, timeout: 15000 });
-        cy.reload()
     }
 }
