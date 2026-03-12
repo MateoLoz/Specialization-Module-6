@@ -3,7 +3,6 @@ import LoginForm from '../../../components/common/forms/login.form';
 export default class LoginPage {
 
     loginForm;
-    url = `${process.env.BASE_URL}`;
 
     constructor() {
         this.loginForm = new LoginForm();
