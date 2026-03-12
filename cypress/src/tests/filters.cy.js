@@ -6,7 +6,9 @@ import { filterScenarios } from '../test-data/testData';
 context('Tool shop filters', () => {
   const homePage = new HomePage();
   beforeEach(() => {
+    cy.intercept('GET', '**/products*').as('getProducts')
     homePage.open();
+    cy.wait('@getProducts')
   })
 
   it('should order items by name asc', () => {
