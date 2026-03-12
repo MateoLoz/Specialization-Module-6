@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    command: npm start
+
+  cypress:
+    image: cypress/included:13.6.0
+    depends_on:
+      - app
+    working_dir: /e2e
+    volumes:
+      - ./:/e2e
+    environment:
+      - CYPRESS_baseUrl=https://practicesoftwaretesting.com
+    command: npm run test:all
