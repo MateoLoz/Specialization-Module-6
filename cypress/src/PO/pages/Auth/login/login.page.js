@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import LoginForm from '../../../components/common/forms/login.form';
 
 export default class LoginPage {

@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import Filter from "../components/filters/filter.component";
 import Products from "../components/products/product.component";
 

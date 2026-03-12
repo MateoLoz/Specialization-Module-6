@@ -1,4 +1,3 @@
-import 'dotenv/config';
 import RegisterForm from '../../../components/common/forms/register.form';
 export default class RegisterPage {
     RegisterForm;
