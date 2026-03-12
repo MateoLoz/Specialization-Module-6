@@ -7,9 +7,10 @@ context('Tool shop filters', () => {
   const homePage = new HomePage();
   beforeEach(() => {
     cy.viewport(1280, 720)
-    cy.intercept('GET', '**/api.practicesoftwaretesting.com/products*').as('getProducts')
     homePage.open();
-    cy.wait('@getProducts', { timeout: 20000 })
+    cy.get('select[data-test="sort"]', { timeout: 15000 })
+      .should('be.visible')
+
   })
 
   it('should order items by name asc', () => {

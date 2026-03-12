@@ -11,5 +11,6 @@ export class HomePage {
     }
     open() {
         cy.visit('/', { failOnStatusCode: false, timeout: 15000 });
+        cy.reload()
     }
 }

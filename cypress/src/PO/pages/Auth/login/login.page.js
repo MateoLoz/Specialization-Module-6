@@ -11,5 +11,6 @@ export default class LoginPage {
     }
     open() {
         cy.visit('/auth/login', { failOnStatusCode: false, timeout: 15000 });
+        cy.reload()
     }
 }
