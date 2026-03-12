@@ -9,7 +9,7 @@ export default class LoginPage {
     constructor() {
         this.loginForm = new LoginForm();
     }
-    open(route) {
-        cy.visit(`${this.url}${route}`);
+    open() {
+        cy.visit('/auth/login');
     }
 }

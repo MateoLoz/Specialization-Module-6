@@ -4,51 +4,119 @@ import { HelperComponent } from "../helpers/helper.component";
 import { SelectComponent } from "../selects/select.component";
 
 export default class RegisterForm {
-    constructor(page) {
-        this.page = page;
-        this.fname = new InputComponent('input[data-test="first-name"]');
-        this.fnameErr = new HelperComponent('div[data-test="first-name-error"] > div');
-        this.lname = new InputComponent('input[data-test="last-name"]');
-        this.bday = new InputComponent('input[data-test="dob"]');
-        this.address = new InputComponent('input[data-test="street"]');
-        this.city = new InputComponent('input[data-test="city"]');
-        this.state = new InputComponent('input[data-test="state"]');
-        this.code = new InputComponent('input[data-test="postal_code"]');
-        this.country = new SelectComponent('select[data-test="country"]');
-        this.phone = new InputComponent('input[data-test="phone"]');
-        this.email = new InputComponent('#email');
-        this.password = new InputComponent('#password');
-        this.button = new ButtonSubmit('button[data-test="register-submit"]');
+
+    get fname() {
+        return cy.get('input[data-test="first-name"]')
     }
 
+    get fnameErr() {
+        return cy.get('div[data-test="first-name-error"] > div')
+    }
+
+    get lname() {
+        return cy.get('input[data-test="last-name"]')
+    }
+
+    get bday() {
+        return cy.get('input[data-test="dob"]')
+    }
+
+    get address() {
+        return cy.get('input[data-test="street"]')
+    }
+
+    get city() {
+        return cy.get('input[data-test="city"]')
+    }
+
+    get state() {
+        return cy.get('input[data-test="state"]')
+    }
+
+    get code() {
+        return cy.get('input[data-test="postal_code"]')
+    }
+
+    get country() {
+        return cy.get('select[data-test="country"]')
+    }
+
+    get phone() {
+        return cy.get('input[data-test="phone"]')
+    }
+
+    get email() {
+        return cy.get('#email')
+    }
+
+    get emailErr() {
+        return cy.get('div[data-test="email-error"] > div')
+    }
+
+    get password() {
+        return cy.get('#password')
+    }
+
+    get passwordErr() {
+        return cy.get('div[data-test="password-error"] > div')
+    }
+
+    get button() {
+        return cy.get('button[data-test="register-submit"]')
+    }
+
+
     enterAllCredentials(credentials) {
-        this.fname.fill(credentials.firstName);
-        this.lname.fill(credentials.lastName);
-        this.bday.fill(credentials.bday);
-        this.address.fill(credentials.address);
-        this.city.fill(credentials.city);
-        this.state.fill(credentials.state);
-        this.code.fill(credentials.postalCode);
-        this.country.fill(credentials.country);
-        this.phone.fill(credentials.phone);
-        this.email.fill(credentials.email);
-        this.password.fill(credentials.password);
+        cy.log(credentials.firstName);
+        this.fname.type(credentials.firstName);
+        this.lname.type(credentials.lastName);
+        this.bday.type(credentials.bday);
+        this.address.type(credentials.address);
+        this.city.type(credentials.city);
+        this.state.type(credentials.state);
+        this.code.type(credentials.postalCode);
+        this.country.select(credentials.country);
+        this.phone.type(credentials.phone);
+        this.email.type(credentials.email);
+        this.password.type(credentials.password);
     }
 
     async enterCredentialsWithoutName(credentials) {
-        this.lname.fill(credentials.lastName);
-        this.bday.fill(credentials.bday);
-        this.address.fill(credentials.address);
-        this.city.fill(credentials.city);
-        this.state.fill(credentials.state);
-        this.code.fill(credentials.postalCode);
-        this.country.fill(credentials.country);
-        this.phone.fill(credentials.phone);
-        this.email.fill(credentials.email);
-        this.password.fill(credentials.password);
+        this.lname.type(credentials.lastName);
+        this.bday.type(credentials.bday);
+        this.address.type(credentials.address);
+        this.city.type(credentials.city);
+        this.state.type(credentials.state);
+        this.code.type(credentials.postalCode);
+        this.country.select(credentials.country);
+        this.phone.type(credentials.phone);
+        this.email.type(credentials.email);
+        this.password.type(credentials.password);
+    }
+
+
+    async enterCredentialsWithoutpassword(credentials) {
+        this.fname.type(credentials.firstName);
+        this.lname.type(credentials.lastName);
+        this.bday.type(credentials.bday);
+        this.address.type(credentials.address);
+        this.city.type(credentials.city);
+        this.state.type(credentials.state);
+        this.code.type(credentials.postalCode);
+        this.country.select(credentials.country);
+        this.phone.type(credentials.phone);
+        this.email.type(credentials.email);
+    }
+
+    getEmailMsgError() {
+        return this.emailErr.invoke('text');
+    }
+
+    getPasswordError() {
+        return this.passwordErr.invoke('text');
     }
 
     register() {
-        this.button.submit();
+        this.button.click();
     }
 }
