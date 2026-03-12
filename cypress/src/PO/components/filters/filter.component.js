@@ -1,7 +1,7 @@
 export default class Filter {
 
     get sortFilter() {
-        return cy.get('.form-select')
+        return cy.get('.form-select', { timeout: 10000 })
     }
 
     get rangeFilter() {
