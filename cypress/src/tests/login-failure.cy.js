@@ -5,6 +5,7 @@ describe('Login - Missing Email', () => {
     const loginPage = new LoginPage();
     before(() => {
         loginPage.open()
+        cy.viewport(1920, 1080);
     })
 
     it('Attempt login with missing email', () => {

@@ -5,7 +5,8 @@ context('Tool shop filters', () => {
   const homePage = new HomePage();
   before(() => {
     homePage.open();
-    cy.viewport(1280, 720)
+    cy.log(homePage.open())
+    cy.viewport(1920, 1080);
   })
 
   it('should order items by name asc', () => {
@@ -13,6 +14,8 @@ context('Tool shop filters', () => {
     homePage.filter.sortFilter.select(filterScenarios[0].filter)
     homePage.products.getAllNames().then(names => {
       const sortedNames = [...names].sort((a, b) => a.localeCompare(b));
+      cy.log(sortedNames)
+      cy.log(names)
       expect(names).to.deep.equal(sortedNames);
     })
 
@@ -23,6 +26,8 @@ context('Tool shop filters', () => {
     homePage.filter.sortFilter.select(filterScenarios[1].filter)
     homePage.products.getAllNames().then(names => {
       const sortedNames = [...names].sort((a, b) => a.localeCompare(b)).reverse();
+      cy.log(sortedNames)
+      cy.log(names)
       expect(names).to.deep.equal(sortedNames);
 
     })
@@ -33,6 +38,8 @@ context('Tool shop filters', () => {
     homePage.filter.sortFilter.select(filterScenarios[2].filter)
     homePage.products.getAllPrices().then(prices => {
       const sortedPrices = [...prices].sort((a, b) => a - b);
+      cy.log(sortedPrices)
+      cy.log(prices)
       expect(prices).to.deep.equal(sortedPrices);
     })
   })
@@ -42,6 +49,8 @@ context('Tool shop filters', () => {
     homePage.filter.sortFilter.select(filterScenarios[3].filter)
     homePage.products.getAllPrices().then(prices => {
       const sortedPrices = [...prices].sort((a, b) => b - a);
+      cy.log(sortedPrices)
+      cy.log(prices)
       expect(prices).to.deep.equal(sortedPrices);
     })
   })
@@ -51,6 +60,8 @@ context('Tool shop filters', () => {
     homePage.filter.sortFilter.select(filterScenarios[4].filter)
     homePage.products.getAllCo2().then(co2 => {
       const sortedCo2 = [...co2].sort((a, b) => a.localeCompare(b));
+      cy.log(sortedCo2)
+      cy.log(co2)
       expect(co2).to.deep.equal(sortedCo2);
     })
   })
@@ -60,6 +71,8 @@ context('Tool shop filters', () => {
     homePage.filter.sortFilter.select(filterScenarios[5].filter)
     homePage.products.getAllCo2().then(co2 => {
       const sortedCo2 = [...co2].sort((a, b) => a.localeCompare(b)).reverse();
+      cy.log(sortedCo2)
+      cy.log(co2)
       expect(co2).to.deep.equal(sortedCo2);
     })
   })
