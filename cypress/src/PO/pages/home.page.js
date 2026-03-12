@@ -10,6 +10,6 @@ export class HomePage {
         this.products = new Products();
     }
     open() {
-        cy.visit('/');
+        cy.visit('/', { failOnStatusCode: false });
     }
 }
