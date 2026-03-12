@@ -9,7 +9,7 @@ export default class LoginForm {
     }
 
     get password() {
-        return cy.get('#password', { timeout: 10000 });
+        return cy.get('div[class="input-group"] > input[id="password"]', { timeout: 10000 });
     }
 
     get button() {

@@ -9,7 +9,7 @@ context('Tool shop filters', () => {
     cy.viewport(1280, 720)
     cy.intercept('GET', '**/api.practicesoftwaretesting.com/products*').as('getProducts')
     homePage.open();
-    cy.wait('@getProducts')
+    cy.wait('@getProducts', { timeout: 20000 })
   })
 
   it('should order items by name asc', () => {
