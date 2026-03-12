@@ -8,9 +8,6 @@ context('Tool shop filters', () => {
   beforeEach(() => {
     cy.viewport(1280, 720)
     homePage.open();
-    cy.get('select[data-test="sort"]', { timeout: 15000 })
-      .should('be.visible')
-
   })
 
   it('should order items by name asc', () => {
