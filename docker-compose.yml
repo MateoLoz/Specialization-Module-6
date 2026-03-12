@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+
+  cypress:
+    image: cypress/included:13.6.0
+    working_dir: /e2e
+    volumes:
+      - .:/e2e
+    environment:
+      CYPRESS_baseUrl: https://practicesoftwaretesting.com
+    command: npm run test:all

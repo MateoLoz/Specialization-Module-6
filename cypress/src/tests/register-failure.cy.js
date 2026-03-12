@@ -7,6 +7,8 @@ describe('Registration Validation', () => {
         const registerPage = new RegisterPage()
         beforeEach(() => {
             registerPage.open();
+            cy.log(registerPage.open());
+            cy.viewport(1920, 1080);
         })
 
         it('Registration fails when email format is invalid', () => {
