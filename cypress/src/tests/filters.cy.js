@@ -6,7 +6,11 @@ import { filterScenarios } from '../test-data/testData';
 context('Tool shop filters', () => {
   const homePage = new HomePage();
   beforeEach(() => {
+    cy.viewport(1280, 720)
     homePage.open();
+    cy.get('select[data-test="sort"]', { timeout: 15000 })
+      .should('be.visible')
+
   })
 
   it('should order items by name asc', () => {

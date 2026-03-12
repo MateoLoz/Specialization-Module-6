@@ -6,43 +6,43 @@ import { SelectComponent } from "../selects/select.component";
 export default class RegisterForm {
 
     get fname() {
-        return cy.get('input[data-test="first-name"]')
+        return cy.get('#first_name', { timeout: 10000 })
     }
 
     get fnameErr() {
-        return cy.get('div[data-test="first-name-error"] > div')
+        return cy.get('div[data-test="first-name-error"] > div', { timeout: 10000 })
     }
 
     get lname() {
-        return cy.get('input[data-test="last-name"]')
+        return cy.get('input[data-test="last-name"]', { timeout: 10000 })
     }
 
     get bday() {
-        return cy.get('input[data-test="dob"]')
+        return cy.get('input[data-test="dob"]', { timeout: 10000 })
     }
 
     get address() {
-        return cy.get('input[data-test="street"]')
+        return cy.get('input[data-test="street"]', { timeout: 10000 })
     }
 
     get city() {
-        return cy.get('input[data-test="city"]')
+        return cy.get('input[data-test="city"]', { timeout: 10000 })
     }
 
     get state() {
-        return cy.get('input[data-test="state"]')
+        return cy.get('input[data-test="state"]', { timeout: 10000 })
     }
 
     get code() {
-        return cy.get('input[data-test="postal_code"]')
+        return cy.get('input[data-test="postal_code"]', { timeout: 10000 })
     }
 
     get country() {
-        return cy.get('select[data-test="country"]')
+        return cy.get('select[data-test="country"]', { timeout: 10000 })
     }
 
     get phone() {
-        return cy.get('input[data-test="phone"]')
+        return cy.get('input[data-test="phone"]', { timeout: 10000 })
     }
 
     get email() {

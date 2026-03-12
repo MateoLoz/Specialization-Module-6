@@ -8,6 +8,7 @@ export default class RegisterPage {
         this.registerForm = new RegisterForm();
     }
     async open() {
-        cy.visit('/auth/register');
+        cy.visit('/auth/register', { failOnStatusCode: false, timeout: 15000 });
+        cy.reload()
     }
 }

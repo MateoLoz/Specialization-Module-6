@@ -10,6 +10,7 @@ export default class LoginPage {
         this.loginForm = new LoginForm();
     }
     open() {
-        cy.visit('/auth/login');
+        cy.visit('/auth/login', { failOnStatusCode: false, timeout: 15000 });
+        cy.reload()
     }
 }

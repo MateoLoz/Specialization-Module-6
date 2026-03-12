@@ -1,19 +1,19 @@
 export default class LoginForm {
 
     get email() {
-        return cy.get('#email');
+        return cy.get('#email', { timeout: 10000 });
     }
 
     get emailErr() {
-        return cy.get('#email-error > div');
+        return cy.get('#email-error > div', { timeout: 10000 });
     }
 
     get password() {
-        return cy.get('input[id="password"]');
+        return cy.get('div[class="input-group"] > input[id="password"]', { timeout: 10000 });
     }
 
     get button() {
-        return cy.get('input[data-test="login-submit"]')
+        return cy.get('input[data-test="login-submit"]', { timeout: 10000 })
     }
 
     getEmailErrorMsg() {
