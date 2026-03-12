@@ -6,7 +6,7 @@ import { SelectComponent } from "../selects/select.component";
 export default class RegisterForm {
 
     get fname() {
-        return cy.get('input[data-test="first-name"]', { timeout: 10000 })
+        return cy.get('#first_name', { timeout: 10000 })
     }
 
     get fnameErr() {
