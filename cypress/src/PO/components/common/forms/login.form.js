@@ -1,22 +1,34 @@
-import { InputComponent } from "../inputs/input.component";
-import { ButtonSubmit } from "../buttons/button.submit";
-
 export default class LoginForm {
-    constructor() {
-        this.email = new InputComponent('#email');
-        this.password = new InputComponent('#password');
-        this.button = new ButtonSubmit('input[data-test="login-submit"]');
+
+    get email() {
+        return cy.get('#email');
+    }
+
+    get emailErr() {
+        return cy.get('#email-error > div');
+    }
+
+    get password() {
+        return cy.get('input[id="password"]');
+    }
+
+    get button() {
+        return cy.get('input[data-test="login-submit"]')
+    }
+
+    getEmailErrorMsg() {
+        return this.emailErr.invoke('text');
     }
 
     enterEmail(email) {
-        this.email.fill(email);
+        this.email.type(email);
     }
 
     enterPassword(password) {
-        this.password.fill(password);
+        this.password.type(password);
     }
 
     login() {
-        this.button.submit();
+        this.button.click();
     }
 }

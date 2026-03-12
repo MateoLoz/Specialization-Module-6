@@ -7,7 +7,7 @@ export default class RegisterPage {
     constructor() {
         this.registerForm = new RegisterForm();
     }
-    async open(route) {
-        cy.visit(`${this.url}${route}`);
+    async open() {
+        cy.visit('/auth/register');
     }
 }

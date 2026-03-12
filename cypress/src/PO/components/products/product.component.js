@@ -1,22 +1,34 @@
 export default class Products {
 
-    constructor() {
+    get sortingCompleted() {
+        return cy.get('[data-test="sorting_completed"]')
+    }
 
-        this.sortingCompleted = cy.locator('[data-test="sorting_completed"]');
-        this.productItems = cy.locator('a.card');
-        this.productNames = cy.locator('[data-test="product-name"]');
-        this.productPrices = cy.locator('[data-test="product-price"]');
-        this.productCo2 = cy.locator('.co2-letter.active');
+    get productItems() {
+        return cy.get('a.card')
+    }
+
+    get productNames() {
+        return cy.get('[data-test="product-name"]')
+    }
+
+    get productPrices() {
+        return cy.get('[data-test="product-price"]')
+    }
+
+    get productCo2() {
+        return cy.get('[data-test="co2-rating-badge"]')
     }
 
     waitForSorting() {
-        cy.get(this.sortingCompleted, { timeout: 8000 }).should('be.visible')
+        this.sortingCompleted
+            .should('be.visible')
     }
 
     getAllNames() {
         this.waitForSorting()
 
-        return cy.get(this.productNames).then($els => {
+        return this.productNames.then($els => {
             return [...$els].map(el => el.innerText.trim())
         })
     }
@@ -24,7 +36,7 @@ export default class Products {
     getAllPrices() {
         this.waitForSorting()
 
-        return cy.get(this.productPrices).then($els => {
+        return this.productPrices.then($els => {
             return [...$els].map(el =>
                 parseFloat(el.innerText.replace('$', '').trim())
             )
@@ -34,7 +46,7 @@ export default class Products {
     getAllCo2() {
         this.waitForSorting()
 
-        return cy.get(this.productCo2).then($els => {
+        return this.productCo2.then($els => {
             return [...$els].map(el => el.innerText.trim())
         })
     }
