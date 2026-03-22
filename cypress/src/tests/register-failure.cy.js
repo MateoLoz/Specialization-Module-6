@@ -1,10 +1,9 @@
-import RegisterPage from '../PO/pages/Auth/register/register.page';
+import registerPage from '../PO/pages/Auth/register/register.page';
 import { invalidEmailRegistration, invalidPasswordRegistration } from '../test-data/testData';
 
 describe('Registration Validation', () => {
 
     context('Registration negative scenarios', () => {
-        const registerPage = new RegisterPage()
         beforeEach(() => {
             registerPage.open();
             cy.log(registerPage.open());

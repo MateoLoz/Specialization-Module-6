@@ -1,8 +1,7 @@
-import { HomePage } from '../PO/pages/home.page';
+import homePage from '../PO/pages/home.page';
 import { filterScenarios } from '../test-data/testData';
 
 context('Tool shop filters', () => {
-  const homePage = new HomePage();
   before(() => {
     homePage.open();
     cy.log(homePage.open())

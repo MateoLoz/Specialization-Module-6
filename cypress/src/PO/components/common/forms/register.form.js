@@ -1,8 +1,3 @@
-import { InputComponent } from "../inputs/input.component";
-import { ButtonSubmit } from "../buttons/button.submit";
-import { HelperComponent } from "../helpers/helper.component";
-import { SelectComponent } from "../selects/select.component";
-
 export default class RegisterForm {
 
     get fname() {

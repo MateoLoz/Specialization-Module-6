@@ -1,8 +1,7 @@
-import LoginPage from "../PO/pages/Auth/login/login.page"
+import loginPage from "../PO/pages/Auth/login/login.page";
 import { validUser } from "../test-data/testData";
 
 describe('Login - Missing Email', () => {
-    const loginPage = new LoginPage();
     before(() => {
         loginPage.open()
         cy.viewport(1920, 1080);
