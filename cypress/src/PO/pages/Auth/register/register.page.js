@@ -1,11 +1,19 @@
 import RegisterForm from '../../../components/common/forms/register.form';
-export default class RegisterPage {
+
+const maxInstance = null;
+class RegisterPage {
     RegisterForm;
 
     constructor() {
-        this.registerForm = new RegisterForm();
+        if (!maxInstance) {
+            this.registerForm = new RegisterForm();
+        } else {
+            return this;
+        }
     }
     async open() {
         cy.visit('/auth/register', { failOnStatusCode: false, timeout: 15000 });
     }
 }
+
+export default new RegisterPage();
