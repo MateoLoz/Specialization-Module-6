@@ -2,7 +2,7 @@ import homePage from '../PO/pages/home.page';
 import { filterScenarios } from '../test-data/testData';
 
 context('Tool shop filters', () => {
-  before(() => {
+  beforeEach(() => {
     homePage.open();
     cy.log(homePage.open())
     cy.viewport(1920, 1080);

@@ -1,2 +1,9 @@
 node_modules
 .env
+
+cypress/src/results/
+mochawesome-report/
+cypress/src/results/merged-report.json
+
+cypress/screenshots/
+cypress/videos/

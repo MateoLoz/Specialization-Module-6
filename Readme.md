@@ -35,6 +35,12 @@ npm test:ui
 npx cypress run --spec "cypress/src/tests/file.cy.js"
 ```
 
+## 7. Generate a full report
+
+```bash
+npm run report:all
+```
+
 
 ## 📂 Project Structure
 

@@ -1,6 +1,11 @@
 const { defineConfig } = require("cypress");
-
+import { config } from "dotenv";
+config();
 module.exports = defineConfig({
+  reporter: 'cypress-multi-reporters',
+  reporterOptions: {
+    configFile: 'reporter.config.json',
+  },
   video: true,
   retries: 2,
   e2e: {
