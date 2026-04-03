@@ -7,7 +7,10 @@
     "test:firefox": "cypress run --browser firefox",
     "test:edge": "cypress run --browser edge",
     "test:ui": "cypress open",
-    "test:all": "npm run test:chrome && npm run test:firefox && npm run test:edge"
+    "test:all": "npm run test:chrome && npm run test:firefox && npm run test:edge",
+    "report:merge": "mochawesome-merge cypress/results/*.json -o cypress/results/merged-report.json",
+    "report:generate": "marge cypress/results/merged-report.json --reportDir mochawesome-report --inline",
+    "report:full": "npm run test:all && npm run report:merge && npm run report:generate"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +18,10 @@
   "description": "",
   "devDependencies": {
     "cypress": "^15.11.0",
-    "dotenv": "^17.3.1"
+    "cypress-multi-reporters": "^2.0.5",
+    "dotenv": "^17.3.1",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2"
   }
 }
